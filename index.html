@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PetsQTR Growth Proposal</title>
+<meta name="description" content="A simple growth system for PetsQTR: ads, content, website, customer experience and reporting.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Brand: black + white, orange accent (same family as the Aaron proposal), blue only in the logo. */
+:root {
+  --black: #000;
+  --ink: #1d1d1f;
+  --grey: #f5f5f7;
+  --white: #fff;
+  --muted: #6e6e73;
+  --muted-dark: #a1a1a6;
+  --line: #d2d2d7;
+  --line-dark: #2c2c2e;
+  --panel-dark: #0f0f10;
+  --orange: #ff7a45;
+  --pink: #ff3d7f;
+  --blue: #325fd6;
+  --good: #1c7c4d;
+  --display: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
+  --body: "Inter", "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body { margin: 0; background: var(--white); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.55; -webkit-text-size-adjust: 100%; }
+h1, h2, h3, h4, p, ul { margin: 0; }
+ul { padding: 0; list-style: none; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; border-radius: 8px; }
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 22px; }
+.eyebrow.hl { display: inline-block; background: var(--orange); color: #111; font-size: clamp(16px, 3.4vw, 22px); font-weight: 700; padding: 10px 22px; border-radius: 999px; margin-bottom: 26px; }
+.tag { font-size: 13px; font-weight: 600; color: var(--orange); border: 1px solid rgba(255,122,69,.55); border-radius: 999px; padding: 5px 12px; white-space: nowrap; }
+.grad { background: linear-gradient(90deg, var(--orange), var(--pink)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+/* logo */
+.logo { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+.logo svg { height: 28px; width: auto; display: block; }
+.logo .word { display: grid; line-height: 1; }
+.logo .word b { font-family: var(--display); font-weight: 700; font-size: 12px; letter-spacing: .32em; }
+.logo .word span { font-weight: 600; font-size: 9px; letter-spacing: .44em; color: #7fa0f5; margin-top: 6px; }
+.on-dark .ring-a { stroke: #fff; } .on-dark .ring-b { stroke: #5b84f0; }
+.on-light .ring-a { stroke: var(--ink); } .on-light .ring-b { stroke: var(--blue); }
+.on-light .word span { color: var(--blue); }
+
+/* nav */
+.top { position: sticky; top: 0; z-index: 20; background: rgba(20,20,22,.82); backdrop-filter: saturate(180%) blur(18px); color: #fff; }
+.top .wrap { display: flex; align-items: center; gap: 22px; height: 60px; }
+.nav { margin-left: auto; display: flex; align-items: center; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+.nav::-webkit-scrollbar { display: none; }
+.nav a { color: #d1d1d6; text-decoration: none; font-size: 14px; padding: 8px 12px; border-radius: 999px; white-space: nowrap; }
+.nav a:hover { color: #fff; }
+.nav a.start { background: var(--orange); color: #111; font-weight: 600; margin-left: 6px; }
+
+/* sections */
+section { padding: 96px 0; }
+.dark { background: var(--black); color: #fff; }
+.grey { background: var(--grey); }
+.eyebrow { font-family: var(--display); font-weight: 600; font-size: 16px; color: var(--orange); margin-bottom: 14px; display: block; }
+h1 { font-family: var(--display); font-weight: 800; font-size: clamp(44px, 10.5vw, 104px); letter-spacing: -.045em; line-height: .98; text-wrap: balance; }
+h2 { font-family: var(--display); font-weight: 700; font-size: clamp(32px, 6vw, 52px); letter-spacing: -.035em; line-height: 1.05; text-wrap: balance; }
+.sub { color: var(--muted); font-size: clamp(17px, 2.3vw, 21px); margin-top: 14px; max-width: 54ch; }
+.dark .sub { color: var(--muted-dark); }
+.head { margin-bottom: 40px; }
+.center { text-align: center; }
+.center .sub { margin-left: auto; margin-right: auto; }
+
+/* hero */
+.hero { padding: 88px 0 80px; text-align: center; }
+.hero .sub { margin: 24px auto 0; }
+.by { margin-top: 22px; color: var(--muted-dark); font-size: 15px; }
+.by b { color: #fff; font-weight: 600; }
+.strip { margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); background: var(--panel-dark); border-radius: 24px; border: 1px solid var(--line-dark); text-align: center; }
+.strip > div { padding: 32px 14px; border-left: 1px solid var(--line-dark); }
+.strip > div:first-child { border-left: 0; }
+.strip b { display: block; font-family: var(--display); font-weight: 800; font-size: clamp(32px, 5vw, 52px); letter-spacing: -.035em; line-height: 1.05; }
+.strip b small { font-size: .45em; color: var(--muted-dark); font-weight: 600; letter-spacing: 0; margin-left: 4px; }
+.strip span { display: block; margin-top: 8px; color: var(--muted-dark); font-size: 14.5px; }
+
+/* cards */
+.grid { display: grid; gap: 16px; }
+.g4 { grid-template-columns: repeat(4, 1fr); }
+.g3 { grid-template-columns: repeat(3, 1fr); }
+.g2 { grid-template-columns: repeat(2, 1fr); }
+.card { background: var(--white); border-radius: 22px; padding: 26px; }
+.grey .card { background: var(--white); }
+.card h3 { font-family: var(--display); font-size: 20px; font-weight: 700; letter-spacing: -.02em; line-height: 1.2; }
+.card p { color: var(--muted); font-size: 15.5px; margin-top: 8px; }
+.dot { width: 40px; height: 40px; border-radius: 12px; background: #fff1ea; display: grid; place-items: center; margin-bottom: 16px; }
+.dot svg { width: 20px; height: 20px; stroke: var(--orange); }
+.dark .card { background: var(--panel-dark); border: 1px solid var(--line-dark); }
+.dark .card p { color: var(--muted-dark); }
+
+/* core works */
+.works { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.work { background: var(--white); border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 14px; }
+.work header { display: flex; gap: 14px; align-items: flex-start; }
+.num { flex: none; font-family: var(--display); font-weight: 800; font-size: 14px; width: 38px; height: 38px; border-radius: 50%; background: var(--black); color: var(--orange); display: grid; place-items: center; }
+.work h3 { font-family: var(--display); font-size: 22px; font-weight: 700; letter-spacing: -.025em; line-height: 1.15; }
+.work .goal { color: var(--muted); font-size: 15px; margin-top: 4px; }
+.block { border-radius: 16px; padding: 16px 18px; background: var(--grey); }
+.block h4 { font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+.block.imp { background: #fff1ea; }
+.block.imp h4 { color: #d9541f; }
+.block.out { background: var(--black); }
+.block.out h4 { color: var(--orange); }
+.block.out li { color: #e8e8ed; }
+.bul li { position: relative; padding-left: 18px; font-size: 15.5px; margin-top: 7px; }
+.bul li:first-child { margin-top: 0; }
+.bul li::before { content: ""; position: absolute; left: 0; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--muted-dark); }
+.imp .bul li::before, .out .bul li::before, .rcard .bul li::before { background: var(--orange); }
+.note { margin-top: 18px; background: var(--black); color: #fff; border-radius: 22px; padding: 22px 26px; display: flex; gap: 16px; align-items: center; }
+.note b { font-family: var(--display); font-size: 18px; flex: none; }
+.note span { color: var(--muted-dark); font-size: 15.5px; }
+
+/* tabs */
+.tabs { display: inline-flex; gap: 4px; padding: 4px; background: var(--grey); border-radius: 999px; margin-bottom: 22px; max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+.grey .tabs { background: #e8e8ed; }
+.tabs::-webkit-scrollbar { display: none; }
+.tab { font: inherit; font-size: 14.5px; font-weight: 600; cursor: pointer; border: 0; background: transparent; color: var(--muted); border-radius: 999px; padding: 10px 20px; white-space: nowrap; }
+.tab[aria-selected="true"] { background: var(--black); color: #fff; }
+
+/* traffic */
+.bars { display: grid; gap: 14px; }
+.bar { display: grid; grid-template-columns: 130px 1fr 130px; gap: 16px; align-items: center; font-size: 15px; font-weight: 500; }
+.bar .track { height: 14px; border-radius: 999px; background: var(--grey); overflow: hidden; }
+.bar .fill { display: block; height: 100%; border-radius: 999px; background: #c7c7cc; }
+.bar.hl .fill { background: linear-gradient(90deg, var(--orange), var(--pink)); }
+.bar .val { text-align: right; color: var(--muted); font-variant-numeric: tabular-nums; font-size: 14px; }
+.bar .val b { color: var(--ink); font-weight: 600; }
+.up { color: var(--good); font-weight: 600; } .dn { color: #d9541f; font-weight: 600; }
+.insight { margin-top: 18px; background: #fff1ea; border-radius: 18px; padding: 18px 22px; font-size: 16px; }
+.insight b { font-weight: 600; }
+.small { color: var(--muted); font-size: 13.5px; margin-top: 14px; }
+.metric b { display: block; font-family: var(--display); font-size: 44px; font-weight: 800; letter-spacing: -.04em; line-height: 1; }
+.metric b small { font-size: 18px; color: var(--muted); font-weight: 600; letter-spacing: 0; margin-left: 4px; }
+.metric span { display: block; margin-top: 10px; color: var(--muted); font-size: 15px; }
+
+/* rhythm / roadmap */
+.rcard h3 { margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+.rcard h3 i { width: 9px; height: 9px; border-radius: 50%; background: var(--orange); display: block; flex: none; }
+.rcard.out-card { background: var(--black); }
+.rcard.out-card h3 { color: #fff; } .rcard.out-card li { color: #e8e8ed; }
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }
+.step { font: inherit; cursor: pointer; text-align: left; background: var(--grey); color: var(--muted); border: 2px solid transparent; border-radius: 20px; padding: 18px; }
+.step small { display: block; font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+.step b { display: block; font-family: var(--display); font-size: 19px; letter-spacing: -.02em; color: var(--ink); margin-top: 6px; }
+.step span { font-size: 13.5px; }
+.step[aria-selected="true"] { border-color: var(--orange); background: #fff1ea; }
+.step[aria-selected="true"] small { color: #d9541f; }
+#step-panel .card { background: var(--grey); }
+#step-panel .card.out-card { background: var(--black); }
+
+/* investment */
+.price { font-family: var(--display); font-weight: 800; font-size: clamp(44px, 8vw, 72px); letter-spacing: -.045em; line-height: 1; margin: 14px 0 6px; }
+.price small { font-size: .32em; letter-spacing: 0; color: var(--muted-dark); font-weight: 600; margin-left: 6px; }
+.ladder { margin-top: 18px; display: grid; gap: 10px; }
+.ladder div { display: flex; align-items: center; gap: 12px; font-size: 15.5px; color: #e8e8ed; }
+.ladder i { flex: none; width: 10px; border-radius: 6px; background: linear-gradient(180deg, var(--orange), var(--pink)); display: block; }
+
+/* cta + footer */
+.cta { text-align: center; }
+.cta ul { margin: 28px auto 0; display: inline-grid; gap: 10px; text-align: left; }
+.cta li { position: relative; padding-left: 28px; color: #e8e8ed; }
+.cta li::before { content: ""; position: absolute; left: 0; top: .45em; width: 12px; height: 12px; border-radius: 50%; border: 3px solid var(--orange); }
+.links { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 32px; }
+.btn { font: inherit; font-size: 15px; font-weight: 600; text-decoration: none; border-radius: 999px; padding: 13px 24px; color: #fff; border: 1px solid #48484a; display: inline-block; }
+.btn:hover { border-color: #fff; }
+.btn.primary { background: var(--orange); border-color: var(--orange); color: #111; }
+.btn.primary:hover { filter: brightness(1.08); }
+.who { margin-top: 26px; color: var(--muted-dark); font-size: 14.5px; }
+footer { background: var(--black); color: var(--muted-dark); padding: 0 0 56px; font-size: 13px; }
+footer .wrap { border-top: 1px solid var(--line-dark); padding-top: 28px; display: grid; gap: 16px; color: #fff; }
+footer p { color: var(--muted-dark); max-width: 80ch; }
+
+
+@media (max-width: 860px) {
+  .g4 { grid-template-columns: 1fr 1fr; }
+  .g3 { grid-template-columns: 1fr; }
+  .works { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  body { font-size: 16px; }
+  section { padding: 64px 0; }
+  .hero { padding: 56px 0 56px; }
+  .g4, .g2 { grid-template-columns: 1fr; }
+  .strip { grid-template-columns: 1fr; }
+  .strip > div { border-left: 0; border-top: 1px solid var(--line-dark); padding: 22px 14px; }
+  .strip > div:first-child { border-top: 0; }
+  .bar { grid-template-columns: 1fr auto; grid-template-areas: "l v" "t t"; gap: 6px 12px; }
+  .bar .lab { grid-area: l; } .bar .val { grid-area: v; } .bar .track { grid-area: t; }
+  .work { padding: 22px; }
+  .note { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .nav a:not(.start) { display: none; }
+  .nav { margin-left: auto; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo on-dark" href="#top" aria-label="Top">
+      <svg viewBox="0 0 66 40" aria-hidden="true" fill="none" stroke-width="3.4" style="height:34px"><circle class="ring-a" cx="21" cy="20" r="16"/><circle class="ring-b" cx="45" cy="20" r="16"/></svg>
+    </a>
+    <span class="tag">Proposal for PetsQTR</span>
+    <nav class="nav" aria-label="Sections">
+      <a href="#strong">Overview</a>
+      <a href="#traffic">Traffic</a>
+      <a href="#core-works">Core works</a>
+      <a href="#rhythm">Reporting</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#invest">Fee</a>
+      <a class="start" href="#next-steps">Start</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero dark">
+  <div class="wrap">
+    <span class="eyebrow hl">Proposal for PetsQTR</span>
+    <h1>Growth System<span class="grad">.</span></h1>
+    <p class="sub">From a strong pet shop to the <span class="grad">first name in Qatar pet care.</span></p>
+    <p class="by">Prepared by <b>Kowser Ahmed</b></p>
+
+    <div class="strip" aria-label="Where PetsQTR is today">
+      <div><b class="grad">7K</b><span>website visits · Oct 2026 (estimate)</span></div>
+      <div><b>4.3<small>/ 5</small></b><span>Google rating · 361 reviews</span></div>
+      <div><b>4.7<small>/ 5</small></b><span>iOS app · 205 ratings</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="strong">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">PetsQTR · Strong base</span><h2>What is already working at PetsQTR</h2></div>
+    <div class="grid g4" id="strengths"></div>
+  </div>
+</section>
+
+<section id="traffic" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">PetsQTR · Traffic · Oct 2026</span>
+      <h2>Where PetsQTR website visits come from</h2>
+      <p class="sub">About 7K visits in October. Estimates from a third-party tool.</p>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Traffic view">
+      <button class="tab" role="tab" aria-selected="true" aria-controls="bars" data-view="channels" type="button">By channel</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="bars" data-view="countries" type="button">By country</button>
+    </div>
+    <div class="bars" id="bars" role="tabpanel"></div>
+    <div class="insight" id="insight"></div>
+
+    <div class="grid g3" style="margin-top:28px" aria-label="Starting numbers">
+      <div class="card metric" style="background:var(--grey)"><b class="grad">34%</b><span>of visits are from Qatar</span></div>
+      <div class="card metric" style="background:var(--grey)"><b>73%</b><span>of visits are on mobile</span></div>
+      <div class="card metric" style="background:var(--grey)"><b>6<small>sec</small></b><span>average visit time</span></div>
+    </div>
+    <p class="small">Orders, chats and ad sales are shared at the start. Targets are set together after the first real numbers.</p>
+  </div>
+</section>
+
+<section id="core-works" class="grey">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">PetsQTR · The plan</span>
+      <h2>Six core works for PetsQTR</h2>
+      <p class="sub">Each one has a goal, an owner and a written routine.</p>
+    </div>
+    <div class="works" id="works"></div>
+    <div class="note"><b>Responsibility is mine.</b><span>I own the plan, the routines, the tracking and the monthly review.</span></div>
+  </div>
+</section>
+
+<section id="rhythm" class="grey">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">PetsQTR · How we keep score</span>
+      <h2>Monthly report, quarterly scale</h2>
+      <p class="sub">A clear report every month. Bigger moves every quarter.</p>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Reporting rhythm">
+      <button class="tab" role="tab" aria-selected="true" aria-controls="rhythm-panel" data-r="month" type="button">Monthly</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="rhythm-panel" data-r="quarter" type="button">Quarterly</button>
+    </div>
+    <div class="grid g3" id="rhythm-panel" role="tabpanel"></div>
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">PetsQTR · Order of work</span>
+      <h2>Four phases</h2>
+      <p class="sub">Fix the base first. Then add content and ads on top.</p>
+    </div>
+    <div class="steps" role="tablist" aria-label="Phases" id="steps"></div>
+    <div class="grid g2" id="step-panel" role="tabpanel"></div>
+  </div>
+</section>
+
+<section id="invest" class="dark">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">PetsQTR · Working together</span>
+      <h2>Simple, fair, and tied to growth.</h2>
+    </div>
+    <div class="grid g2">
+      <div class="card">
+        <h3>Monthly fee</h3>
+        <div class="price grad">$1,200<small>/ month, first quarter</small></div>
+        <p>A clear fee for the first quarter, so you can plan with confidence.</p>
+      </div>
+      <div class="card">
+        <h3>Grows with your results</h3>
+        <div class="ladder" aria-label="Fee grows each quarter">
+          <div><i style="height:18px"></i>Quarter 1: $1,200 / month</div>
+          <div><i style="height:26px"></i>Quarter 2: gradual step up</div>
+          <div><i style="height:34px"></i>Quarter 3 and after: steady step up</div>
+        </div>
+        <p>As each month's growth comes in, the fee rises gradually each quarter, as a token of appreciation.</p>
+      </div>
+      <div class="card" style="grid-column:1/-1">
+        <h3>Like your own employee, not an agency</h3>
+        <p>I work as part of PetsQTR: hybrid, online and on site when it matters. I take daily responsibility the way a trusted employee does, and I stay flexible with your work and your environment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="next-steps" class="dark" style="padding-top:0">
+  <div class="wrap cta">
+    <span class="eyebrow">PetsQTR · Next step</span>
+    <h2>A 30-minute walk-through</h2>
+    <ul>
+      <li>Go through your real numbers: orders, chats, ad sales</li>
+      <li>Pick the first three fixes</li>
+      <li>Agree the monthly report</li>
+    </ul>
+    <div class="links">
+      <a class="btn primary" href="https://linkedin.com/in/kowserahmed" target="_blank" rel="noopener">Connect on LinkedIn</a>
+    </div>
+    <p class="who">Kowser Ahmed</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="logo on-dark" href="#top" aria-label="Back to top">
+      <svg viewBox="0 0 66 40" aria-hidden="true" fill="none" stroke-width="3.4" style="height:34px"><circle class="ring-a" cx="21" cy="20" r="16"/><circle class="ring-b" cx="45" cy="20" r="16"/></svg>
+    </a>
+    <p>Ratings come from public pages checked on 17 Nov 2026. Traffic figures are third-party estimates and can differ from the site's own analytics. Prepared by Kowser Ahmed for PetsQTR.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  function ul(a) { return '<ul class="bul">' + a.map(function (x) { return "<li>" + x + "</li>"; }).join("") + "</ul>"; }
+  var CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+
+  var strengths = [
+    ["Wide range", "Cats, dogs, birds, fish, reptiles and small pets, with search and filters."],
+    ["Real store", "Salwa Rd store. Customers praise the helpful staff."],
+    ["Apps on iOS and Android", "First-order code built in."],
+    ["Active ads", "Media buying is already running, with catalog ads."]
+  ];
+  document.getElementById("strengths").innerHTML = strengths.map(function (s) {
+    return '<div class="card"><span class="dot">' + CHECK + '</span><h3>' + s[0] + '</h3><p>' + s[1] + '</p></div>';
+  }).join("");
+
+  /* order: paid growth, content, website, CX, chats, reputation */
+  var works = [
+    { t: "Paid growth", g: "Reach buyers in Qatar who are ready to act.",
+      now: ["About 14 catalog ads are live", "A brand ad runs on YouTube search", "About 34% of visits are from Qatar"],
+      imp: ["Qatar-only targeting", "Google Search: “pet shop near me” and food brands", "Shopping with a clean product feed", "Local store ads and remarketing"],
+      out: ["Sales from people already searching", "Clear data on best sellers"] },
+    { t: "Content and distribution", g: "Free reach in Qatar that turns into orders.",
+      now: ["A real store full of things to film", "No YouTube channel found yet", "Videos can send more people to the website"],
+      imp: ["Film once in the store, post everywhere: Instagram, Facebook, YouTube Shorts, TikTok, Snapchat", "8 simple video themes: cute animals, new arrivals, problem and fix, Qatar pet tips, behind the scenes, customers, deals, vet tips", "Every video ends with one action"],
+      out: ["Cheaper reach", "More trust", "Videos can also run as ads"] },
+    { t: "Website conversion", g: "More visitors become buyers.",
+      now: ["Strong range, search with filters", "Most visits are on mobile", "Average visit is about 6 seconds"],
+      imp: ["Reviews on product pages", "Payment, delivery and returns next to Add to cart", "Chat button and phone number in the header", "Faster mobile pages", "Online payment such as Apple Pay"],
+      out: ["More sales from the same traffic", "Every ad riyal works harder"] },
+    { t: "Customer experience and operations", g: "Every order feels fast, clear and trusted.",
+      now: ["Customers love the staff and the range", "A few reviews ask for clearer order updates", "Stock on the site can differ from the store"],
+      imp: ["A message at each step: confirmed, packed, shipped, delivered", "One clear delivery promise", "Daily stock check between store and site", "Care checklist for live fish and birds"],
+      out: ["Fewer late orders", "Fewer worried messages", "More repeat buyers"] },
+    { t: "Omnichannel chats and CRM", g: "Every chat can become a sale.",
+      now: ["Customers reach you by chat, calls and messages", "The phone number is not the same on every channel"],
+      imp: ["One number and one shared inbox", "Product catalog and quick replies", "Automatic order updates", "Reorder reminders, food subscriptions, loyalty offer"],
+      out: ["Faster answers when buyers are ready", "More repeat orders"] },
+    { t: "Reputation, search and data", g: "Trust and free traffic that last.",
+      now: ["4.3 on Google from 361 reviews", "iOS app rated 4.7", "Some pages can show richer Google results"],
+      imp: ["A reply to every review", "A review request after each delivery", "Better page titles and product data", "Tracking for purchases, chats, calls and app installs", "One clear monthly report"],
+      out: ["More clicks from Google and Maps", "Decisions from real numbers"] }
+  ];
+  document.getElementById("works").innerHTML = works.map(function (w, i) {
+    return '<article class="work"><header><span class="num">' + (i + 1) + '</span><div><h3>' + w.t + '</h3><p class="goal">' + w.g + '</p></div></header>' +
+      '<div class="block"><h4>Where we are</h4>' + ul(w.now) + '</div>' +
+      '<div class="block imp"><h4>Improvement prospect</h4>' + ul(w.imp) + '</div>' +
+      '<div class="block out"><h4>Effect on sales</h4>' + ul(w.out) + '</div></article>';
+  }).join("");
+
+  /* traffic */
+  var data = {
+    channels: [["Organic search", 33.29], ["Direct", 29.21], ["Referrals", 8.92], ["Display", 6.12], ["Paid search", 5.69], ["Organic social", 5.56], ["Email", 3.61], ["Affiliates", 3.12], ["Paid social", 3.09], ["Gen AI", 1.41]],
+    countries: [["Qatar", 34.30, -25], ["United States", 23.82, -51], ["Saudi Arabia", 22.61, 259], ["Philippines", 8.62, -42], ["Brazil", 4.57, null]]
+  };
+  var insights = {
+    channels: "<b>Paid and social channels are small slices today.</b> Clear links and one call to action per post can grow them.",
+    countries: "<b>Only about 1 in 3 visits is from Qatar.</b> Qatar-only targeting makes the same budget work harder."
+  };
+  var hlCh = { "Paid search": 1, "Paid social": 1, "Organic social": 1 };
+  var barsEl = document.getElementById("bars"), insEl = document.getElementById("insight");
+  function renderBars(v) {
+    var rows = data[v], max = Math.max.apply(null, rows.map(function (r) { return r[1]; }));
+    barsEl.innerHTML = rows.map(function (r) {
+      var hl = v === "countries" ? r[0] === "Qatar" : !!hlCh[r[0]];
+      var ch = "";
+      if (v === "countries" && r[2] !== null) ch = ' <span class="' + (r[2] > 0 ? "up" : "dn") + '">' + (r[2] > 0 ? "+" : "") + r[2] + '%</span>';
+      return '<div class="bar' + (hl ? " hl" : "") + '"><span class="lab">' + r[0] + '</span><span class="track"><span class="fill" style="width:' + (r[1] / max * 100).toFixed(1) + '%"></span></span><span class="val"><b>' + r[1].toFixed(1) + '%</b>' + ch + '</span></div>';
+    }).join("");
+    insEl.innerHTML = insights[v];
+  }
+  Array.prototype.forEach.call(document.querySelectorAll("[data-view]"), function (b, _, all) {
+    b.addEventListener("click", function () {
+      Array.prototype.forEach.call(all, function (x) { x.setAttribute("aria-selected", x === b ? "true" : "false"); });
+      renderBars(b.getAttribute("data-view"));
+    });
+  });
+  renderBars("channels");
+
+  /* rhythm */
+  var rhythm = {
+    month: [
+      { h: "Monthly report", items: ["3 wins and 3 improvement points", "Traffic, sales and ad results vs last month", "Top videos and clicks to the site", "Chats started and how many became orders", "Customer experience, reviews and search results", "Tracking check: purchases, chats, calls, installs"] },
+      { h: "Next-month plan", items: ["3 goals for the month", "What to stop, start and keep", "Ad budget moves", "Video topics", "Fixes with owner and date"] },
+      { h: "Output", out: true, items: ["Short report: 1 to 2 pages", "A 30-minute call", "Clear next steps"] }
+    ],
+    quarter: [
+      { h: "Review", items: ["Compare 3 months with the starting numbers", "Find the cheapest source of orders", "Find the best products and videos"] },
+      { h: "Scale", items: ["Grow the best ad groups and video styles", "Push best products in Shopping", "Fix or stop channels with no sales after fair tests"] },
+      { h: "Add new", items: ["TikTok and Snapchat ads", "Push messages in the app", "Loyalty and food subscriptions", "Creator partners", "Shop and vet clinic shared offers"] }
+    ]
+  };
+  var rp = document.getElementById("rhythm-panel");
+  function renderRhythm(k) {
+    rp.innerHTML = rhythm[k].map(function (c) {
+      return '<div class="card rcard' + (c.out ? " out-card" : "") + '"><h3><i></i>' + c.h + '</h3>' + ul(c.items) + '</div>';
+    }).join("");
+  }
+  Array.prototype.forEach.call(document.querySelectorAll("[data-r]"), function (b, _, all) {
+    b.addEventListener("click", function () {
+      Array.prototype.forEach.call(all, function (x) { x.setAttribute("aria-selected", x === b ? "true" : "false"); });
+      renderRhythm(b.getAttribute("data-r"));
+    });
+  });
+  renderRhythm("month");
+
+  /* roadmap */
+  var phases = [
+    { n: "1", h: "Foundation",
+      a: ["One phone number and one shared inbox", "Written order flow and complaint routine", "Tracking set up", "Replies to open reviews"], b: ["A solid base", "The first real numbers"] },
+    { n: "2", h: "Conversion",
+      a: ["Product page fixes and reviews on products", "Payment, delivery and returns shown clearly", "Faster mobile pages", "Stock check between store and site"], b: ["More visitors become buyers"] },
+    { n: "3", h: "Traffic",
+      a: ["Google Search, Shopping and local ads", "Remarketing on your ad channels", "Regular Reels and YouTube Shorts", "First monthly report"], b: ["More of the right visitors", "Clear data on what sells"] },
+    { n: "4", h: "Scale",
+      a: ["Food subscriptions and loyalty rewards", "Creator and groomer partners", "Shop and vet clinic shared offers", "Budget moves to best performers"], b: ["Repeat sales", "Steady growth"] }
+  ];
+  var stepsEl = document.getElementById("steps"), sp = document.getElementById("step-panel");
+  function renderStep(i) {
+    var p = phases[i];
+    Array.prototype.forEach.call(stepsEl.children, function (b, j) { b.setAttribute("aria-selected", j === i ? "true" : "false"); });
+    sp.innerHTML = '<div class="card rcard"><h3><i></i>What we do</h3>' + ul(p.a) + '</div><div class="card rcard out-card"><h3><i></i>Result</h3>' + ul(p.b) + '</div>';
+  }
+  phases.forEach(function (p, i) {
+    var b = document.createElement("button");
+    b.className = "step"; b.type = "button"; b.setAttribute("role", "tab");
+    b.innerHTML = "<small>Phase " + p.n + "</small><b>" + p.h + "</b>";
+    b.addEventListener("click", function () { renderStep(i); });
+    stepsEl.appendChild(b);
+  });
+  renderStep(0);
+
+})();
+</script>
+</body>
+</html>
