@@ -161,6 +161,21 @@ h2 { font-family: var(--display); font-weight: 700; font-size: clamp(32px, 6vw, 
 #step-panel .card { background: var(--grey); }
 #step-panel .card.out-card { background: var(--black); }
 
+/* phases */
+.phases { display: grid; gap: 16px; }
+.phase { background: var(--grey); border-radius: 28px; padding: 40px; display: grid; grid-template-columns: 240px 1fr; gap: 32px; }
+.pn { font-family: var(--display); font-weight: 800; font-size: 64px; letter-spacing: -.04em; line-height: 1; background: linear-gradient(90deg, var(--orange), var(--pink)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.phase h3 { font-family: var(--display); font-size: 30px; font-weight: 700; letter-spacing: -.03em; margin-top: 14px; }
+.pt { color: var(--muted); margin-top: 6px; }
+.run { display: inline-block; margin-top: 16px; background: #fbe3d6; color: #a8431a; font-weight: 600; font-size: 13.5px; border-radius: 999px; padding: 7px 14px; }
+.chips2 { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+.chips2 span { background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px; font-weight: 500; font-size: 15px; }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.cols h4 { font-size: 16px; font-weight: 700; margin-bottom: 12px; }
+.mile { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 16px; }
+.mile::before { content: ""; display: inline-block; width: 12px; height: 12px; background: var(--ink); transform: rotate(45deg); margin-right: 12px; }
+@media (max-width: 860px) { .phase { grid-template-columns: 1fr; padding: 28px; gap: 22px; } .cols { grid-template-columns: 1fr; gap: 22px; } .pn { font-size: 52px; } }
+
 /* investment */
 .price { font-family: var(--display); font-weight: 800; font-size: clamp(44px, 8vw, 72px); letter-spacing: -.045em; line-height: 1; margin: 14px 0 6px; }
 .price small { font-size: .32em; letter-spacing: 0; color: var(--muted-dark); font-weight: 600; margin-left: 6px; }
@@ -322,13 +337,56 @@ footer p { color: var(--muted-dark); max-width: 80ch; }
 
 <section id="roadmap">
   <div class="wrap">
-    <div class="head">
-      <span class="eyebrow">PetsQTR · Order of work</span>
-      <h2>Four phases</h2>
-      <p class="sub">Fix the base first. Then add content and ads on top.</p>
+    <div class="head center">
+      <span class="eyebrow">PetsQTR · Phase by phase</span>
+      <h2>Who does what.<br>In what order.</h2>
     </div>
-    <div class="steps" role="tablist" aria-label="Phases" id="steps"></div>
-    <div class="grid g2" id="step-panel" role="tabpanel"></div>
+    <div class="phases">
+      <article class="phase">
+        <div class="pl"><div class="pn">01</div><h3>Foundation</h3><p class="pt">Start</p><span class="run">Run by Kowser</span></div>
+        <div class="pr">
+          <div class="chips2"><span>Tracking</span><span>Chats</span><span>Orders</span></div>
+          <div class="cols">
+            <div><h4>Kowser does</h4><ul class="bul"><li>Set up tracking for purchases, chats, calls and app installs</li><li>Write the order flow and complaint routine</li><li>Set up one number and one shared inbox</li><li>Plan replies to open reviews</li></ul></div>
+            <div><h4>PetsQTR does</h4><ul class="bul"><li>Share access: Analytics, Ads, store and app sales</li><li>Give the owner time for questions</li><li>Approve the routines</li></ul></div>
+          </div>
+          <p class="mile"><b>Milestone:</b> first real numbers in one report</p>
+        </div>
+      </article>
+      <article class="phase">
+        <div class="pl"><div class="pn">02</div><h3>Conversion</h3><p class="pt">Next</p><span class="run">Run by Kowser</span></div>
+        <div class="pr">
+          <div class="chips2"><span>Website</span><span>Product pages</span><span>Mobile</span></div>
+          <div class="cols">
+            <div><h4>Kowser does</h4><ul class="bul"><li>Fix product pages: reviews, price, delivery, returns</li><li>Make mobile pages faster</li><li>Add a chat button and number in the header</li><li>Set a daily stock check between store and site</li></ul></div>
+            <div><h4>PetsQTR does</h4><ul class="bul"><li>Approve page changes</li><li>Share product photos and stock updates</li></ul></div>
+          </div>
+          <p class="mile"><b>Milestone:</b> more visitors become buyers</p>
+        </div>
+      </article>
+      <article class="phase">
+        <div class="pl"><div class="pn">03</div><h3>Traffic</h3><p class="pt">Then</p><span class="run">Run by Kowser</span></div>
+        <div class="pr">
+          <div class="chips2"><span>Ads</span><span>Video</span><span>Search</span></div>
+          <div class="cols">
+            <div><h4>Kowser does</h4><ul class="bul"><li>Run Google Search, Shopping and local ads, Qatar only</li><li>Set up remarketing</li><li>Guide Reels and Shorts with one logo outro and one action</li><li>Send the first monthly report</li></ul></div>
+            <div><h4>PetsQTR does</h4><ul class="bul"><li>Approve offers and content</li><li>Film in the store when needed</li><li>Confirm the ad budget</li></ul></div>
+          </div>
+          <p class="mile"><b>Milestone:</b> cost per order is clear</p>
+        </div>
+      </article>
+      <article class="phase">
+        <div class="pl"><div class="pn">04</div><h3>Scale</h3><p class="pt">After</p><span class="run">Run by Kowser</span></div>
+        <div class="pr">
+          <div class="chips2"><span>Repeat sales</span><span>Partners</span><span>New reach</span></div>
+          <div class="cols">
+            <div><h4>Kowser does</h4><ul class="bul"><li>Build food subscriptions and loyalty rewards</li><li>Find creator and groomer partners</li><li>Plan shop and vet clinic shared offers</li><li>Move budget to the best performers</li></ul></div>
+            <div><h4>PetsQTR does</h4><ul class="bul"><li>Approve partner deals</li><li>Decide budget moves</li></ul></div>
+          </div>
+          <p class="mile"><b>Milestone:</b> repeat sales grow</p>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 
@@ -493,31 +551,7 @@ footer p { color: var(--muted-dark); max-width: 80ch; }
   });
   renderRhythm("month");
 
-  /* roadmap */
-  var phases = [
-    { n: "1", h: "Foundation",
-      a: ["One phone number and one shared inbox", "Written order flow and complaint routine", "Tracking set up", "Replies to open reviews"], b: ["A solid base", "The first real numbers"] },
-    { n: "2", h: "Conversion",
-      a: ["Product page fixes and reviews on products", "Payment, delivery and returns shown clearly", "Faster mobile pages", "Stock check between store and site"], b: ["More visitors become buyers"] },
-    { n: "3", h: "Traffic",
-      a: ["Google Search, Shopping and local ads", "Remarketing on your ad channels", "Regular Reels and YouTube Shorts", "First monthly report"], b: ["More of the right visitors", "Clear data on what sells"] },
-    { n: "4", h: "Scale",
-      a: ["Food subscriptions and loyalty rewards", "Creator and groomer partners", "Shop and vet clinic shared offers", "Budget moves to best performers"], b: ["Repeat sales", "Steady growth"] }
-  ];
-  var stepsEl = document.getElementById("steps"), sp = document.getElementById("step-panel");
-  function renderStep(i) {
-    var p = phases[i];
-    Array.prototype.forEach.call(stepsEl.children, function (b, j) { b.setAttribute("aria-selected", j === i ? "true" : "false"); });
-    sp.innerHTML = '<div class="card rcard"><h3><i></i>What we do</h3>' + ul(p.a) + '</div><div class="card rcard out-card"><h3><i></i>Result</h3>' + ul(p.b) + '</div>';
-  }
-  phases.forEach(function (p, i) {
-    var b = document.createElement("button");
-    b.className = "step"; b.type = "button"; b.setAttribute("role", "tab");
-    b.innerHTML = "<small>Phase " + p.n + "</small><b>" + p.h + "</b>";
-    b.addEventListener("click", function () { renderStep(i); });
-    stepsEl.appendChild(b);
-  });
-  renderStep(0);
+
 
 })();
 </script>
