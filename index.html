@@ -97,6 +97,10 @@ h2 { font-family: var(--display); font-weight: 700; font-size: clamp(32px, 6vw, 
 .dark .card { background: var(--panel-dark); border: 1px solid var(--line-dark); }
 .dark .card p { color: var(--muted-dark); }
 
+.prob { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+.prob p { margin-top: 0; }
+.prob .to { margin-top: auto; font-size: 12.5px; font-weight: 600; color: #d9541f; background: #fff1ea; border-radius: 999px; padding: 6px 12px; }
+
 /* core works */
 .works { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 .work { background: var(--white); border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 14px; }
@@ -214,6 +218,7 @@ footer p { color: var(--muted-dark); max-width: 80ch; }
     <span class="tag">Proposal for PetsQTR</span>
     <nav class="nav" aria-label="Sections">
       <a href="#strong">Overview</a>
+      <a href="#solve">To solve</a>
       <a href="#traffic">Traffic</a>
       <a href="#core-works">Core works</a>
       <a href="#rhythm">Reporting</a>
@@ -247,7 +252,25 @@ footer p { color: var(--muted-dark); max-width: 80ch; }
   </div>
 </section>
 
-<section id="traffic" style="padding-top:0">
+<section id="solve" class="grey">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">PetsQTR · Improvement list</span>
+      <h2>What we will solve first</h2>
+      <p class="sub">Six clear opportunities. Each one has a matching work below.</p>
+    </div>
+    <div class="grid g3">
+      <div class="card prob"><span class="num">1</span><h3>Only 1 in 3 visits is from Qatar</h3><p>Ads and traffic can reach more local buyers.</p><span class="to">Work 1 · Paid growth</span></div>
+      <div class="card prob"><span class="num">2</span><h3>No video routine yet</h3><p>No YouTube channel found. Short videos can bring free reach.</p><span class="to">Work 2 · Content</span></div>
+      <div class="card prob"><span class="num">3</span><h3>Visitors stay about 6 seconds</h3><p>Product pages can show more trust and load faster on mobile.</p><span class="to">Work 3 · Website</span></div>
+      <div class="card prob"><span class="num">4</span><h3>Order updates and stock</h3><p>Some reviews ask for clearer updates. Site stock can differ from the store.</p><span class="to">Work 4 · Customer experience</span></div>
+      <div class="card prob"><span class="num">5</span><h3>Phone number is not the same everywhere</h3><p>One number and one inbox make every chat easier to answer.</p><span class="to">Work 5 · Chats and CRM</span></div>
+      <div class="card prob"><span class="num">6</span><h3>One clear report is needed</h3><p>Visits, chats, orders and ad sales together in one monthly report.</p><span class="to">Work 6 · Reputation and data</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="traffic">
   <div class="wrap">
     <div class="head">
       <span class="eyebrow">PetsQTR · Traffic · Oct 2026</span>
@@ -318,8 +341,8 @@ footer p { color: var(--muted-dark); max-width: 80ch; }
     <div class="grid g2">
       <div class="card">
         <h3>Monthly fee</h3>
-        <div class="price grad">$1,200<small>/ month, first quarter</small></div>
-        <p>A clear fee for the first quarter, so you can plan with confidence.</p>
+        <div class="price grad">$1,200<small>/ month</small></div>
+        <p>A clear monthly fee, so you can plan with confidence.</p>
       </div>
       <div class="card">
         <h3>Grows with your results</h3>
