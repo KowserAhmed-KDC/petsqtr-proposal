@@ -176,6 +176,15 @@ h2 { font-family: var(--display); font-weight: 700; font-size: clamp(32px, 6vw, 
 .mile::before { content: ""; display: inline-block; width: 12px; height: 12px; background: var(--ink); transform: rotate(45deg); margin-right: 12px; }
 @media (max-width: 860px) { .phase { grid-template-columns: 1fr; padding: 28px; gap: 22px; } .cols { grid-template-columns: 1fr; gap: 22px; } .pn { font-size: 52px; } }
 
+.mx-t { font-family: var(--display); font-size: 24px; letter-spacing: -.03em; margin: 44px 0 16px; }
+.mx-w { overflow-x: auto; }
+.mx { width: 100%; border-collapse: collapse; min-width: 560px; font-size: 15px; }
+.mx th, .mx td { padding: 12px 14px; border-bottom: 1px solid var(--line); text-align: center; }
+.mx th:first-child, .mx td:first-child { text-align: left; font-weight: 600; }
+.mx th { color: var(--muted); font-size: 13px; }
+.mx td:not(:first-child) { color: var(--muted); }
+.mx tr.lead td { background: #fff1ea; color: #a8431a; font-weight: 600; text-align: center; border-bottom: 0; }
+.mx tr.lead td:first-child { text-align: left; border-radius: 12px 0 0 12px; }
 /* investment */
 .price { font-family: var(--display); font-weight: 800; font-size: clamp(44px, 8vw, 72px); letter-spacing: -.045em; line-height: 1; margin: 14px 0 6px; }
 .price small { font-size: .32em; letter-spacing: 0; color: var(--muted-dark); font-weight: 600; margin-left: 6px; }
@@ -345,10 +354,10 @@ footer p { color: var(--muted-dark); max-width: 80ch; }
       <article class="phase">
         <div class="pl"><div class="pn">01</div><h3>Foundation</h3><p class="pt">Start</p><span class="run">Run by Kowser</span></div>
         <div class="pr">
-          <div class="chips2"><span>Tracking</span><span>Chats</span><span>Orders</span></div>
+          <div class="chips2"><span>Reputation, search and data</span><span>Omnichannel chats and CRM</span></div>
           <div class="cols">
-            <div><h4>Kowser does</h4><ul class="bul"><li>Set up tracking for purchases, chats, calls and app installs</li><li>Write the order flow and complaint routine</li><li>Set up one number and one shared inbox</li><li>Plan replies to open reviews</li></ul></div>
-            <div><h4>PetsQTR does</h4><ul class="bul"><li>Share access: Analytics, Ads, store and app sales</li><li>Give the owner time for questions</li><li>Approve the routines</li></ul></div>
+            <div><h4>Kowser does</h4><ul class="bul"><li>Tracking for purchases, chats, calls and app installs</li><li>One number and one shared inbox</li><li>Product catalog and quick replies</li><li>A reply to every review</li></ul></div>
+            <div><h4>PetsQTR does</h4><ul class="bul"><li>Share access: Analytics, Ads, store and app sales</li><li>Approve the routines</li></ul></div>
           </div>
           <p class="mile"><b>Milestone:</b> first real numbers in one report</p>
         </div>
@@ -356,9 +365,9 @@ footer p { color: var(--muted-dark); max-width: 80ch; }
       <article class="phase">
         <div class="pl"><div class="pn">02</div><h3>Conversion</h3><p class="pt">Next</p><span class="run">Run by Kowser</span></div>
         <div class="pr">
-          <div class="chips2"><span>Website</span><span>Product pages</span><span>Mobile</span></div>
+          <div class="chips2"><span>Website conversion</span><span>Customer experience and operations</span></div>
           <div class="cols">
-            <div><h4>Kowser does</h4><ul class="bul"><li>Fix product pages: reviews, price, delivery, returns</li><li>Make mobile pages faster</li><li>Add a chat button and number in the header</li><li>Set a daily stock check between store and site</li></ul></div>
+            <div><h4>Kowser does</h4><ul class="bul"><li>Reviews on product pages</li><li>Payment, delivery and returns next to Add to cart</li><li>Chat button and phone number in the header</li><li>Faster mobile pages and online payment such as Apple Pay</li><li>An order message at each step</li><li>Daily stock check between store and site</li></ul></div>
             <div><h4>PetsQTR does</h4><ul class="bul"><li>Approve page changes</li><li>Share product photos and stock updates</li></ul></div>
           </div>
           <p class="mile"><b>Milestone:</b> more visitors become buyers</p>
@@ -367,10 +376,10 @@ footer p { color: var(--muted-dark); max-width: 80ch; }
       <article class="phase">
         <div class="pl"><div class="pn">03</div><h3>Traffic</h3><p class="pt">Then</p><span class="run">Run by Kowser</span></div>
         <div class="pr">
-          <div class="chips2"><span>Ads</span><span>Video</span><span>Search</span></div>
+          <div class="chips2"><span>Paid growth</span><span>Content and distribution</span></div>
           <div class="cols">
-            <div><h4>Kowser does</h4><ul class="bul"><li>Run Google Search, Shopping and local ads, Qatar only</li><li>Set up remarketing</li><li>Guide Reels and Shorts with one logo outro and one action</li><li>Send the first monthly report</li></ul></div>
-            <div><h4>PetsQTR does</h4><ul class="bul"><li>Approve offers and content</li><li>Film in the store when needed</li><li>Confirm the ad budget</li></ul></div>
+            <div><h4>Kowser does</h4><ul class="bul"><li>Qatar-only targeting</li><li>Google Search, Shopping with a clean feed, local store ads, remarketing</li><li>Film once, post everywhere, with 8 video themes</li><li>Every video ends with one action</li><li>The first monthly report</li></ul></div>
+            <div><h4>PetsQTR does</h4><ul class="bul"><li>Approve offers and content</li><li>Confirm the ad budget</li></ul></div>
           </div>
           <p class="mile"><b>Milestone:</b> cost per order is clear</p>
         </div>
@@ -378,15 +387,28 @@ footer p { color: var(--muted-dark); max-width: 80ch; }
       <article class="phase">
         <div class="pl"><div class="pn">04</div><h3>Scale</h3><p class="pt">After</p><span class="run">Run by Kowser</span></div>
         <div class="pr">
-          <div class="chips2"><span>Repeat sales</span><span>Partners</span><span>New reach</span></div>
+          <div class="chips2"><span>Omnichannel chats and CRM</span><span>Reputation, search and data</span><span>Paid growth</span></div>
           <div class="cols">
-            <div><h4>Kowser does</h4><ul class="bul"><li>Build food subscriptions and loyalty rewards</li><li>Find creator and groomer partners</li><li>Plan shop and vet clinic shared offers</li><li>Move budget to the best performers</li></ul></div>
-            <div><h4>PetsQTR does</h4><ul class="bul"><li>Approve partner deals</li><li>Decide budget moves</li></ul></div>
+            <div><h4>Kowser does</h4><ul class="bul"><li>Reorder reminders, food subscriptions, loyalty offer</li><li>A review request after each delivery</li><li>Better page titles and product data</li><li>Move budget to the best sellers</li></ul></div>
+            <div><h4>PetsQTR does</h4><ul class="bul"><li>Approve offers</li><li>Decide budget moves</li></ul></div>
           </div>
           <p class="mile"><b>Milestone:</b> repeat sales grow</p>
         </div>
       </article>
     </div>
+    <h3 class="mx-t">Six works across the phases</h3>
+    <div class="mx-w"><table class="mx">
+      <thead><tr><th>Work</th><th>01</th><th>02</th><th>03</th><th>04</th></tr></thead>
+      <tbody>
+        <tr><td>Paid growth</td><td>·</td><td>·</td><td>Set up</td><td>Improve</td></tr>
+        <tr><td>Content and distribution</td><td>·</td><td>·</td><td>Set up</td><td>Improve</td></tr>
+        <tr><td>Website conversion</td><td>·</td><td>Build</td><td>Run</td><td>Improve</td></tr>
+        <tr><td>Customer experience and operations</td><td>·</td><td>Build</td><td>Run</td><td>Run</td></tr>
+        <tr><td>Omnichannel chats and CRM</td><td>Set up</td><td>Run</td><td>Run</td><td>Improve</td></tr>
+        <tr><td>Reputation, search and data</td><td>Set up</td><td>Run</td><td>Run</td><td>Improve</td></tr>
+        <tr class="lead"><td>Kowser, strategy lead</td><td colspan="4">Runs across every phase, from day 1</td></tr>
+      </tbody>
+    </table></div>
   </div>
 </section>
 
